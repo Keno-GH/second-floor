@@ -1,0 +1,144 @@
+<Defs>
+  <!--Staircase for bedrooms base-->
+  <ThingDef Abstract="True" Name="StaircaseBedBase" ParentName="BedWithQualityBase">
+    <tickerType>Normal</tickerType>
+    <holdsRoof>true</holdsRoof>
+    <uiIconScale>.9</uiIconScale>
+    <uiOrder>2405</uiOrder>
+    <building>
+      <ai_neverTrashThis>true</ai_neverTrashThis>
+      <paintable>true</paintable>
+      <bed_showSleeperBody>False</bed_showSleeperBody>
+      <bed_healPerDay>4</bed_healPerDay>
+      <bed_caravansCanUse>false</bed_caravansCanUse>
+    </building>
+    <fillPercent>0.8</fillPercent>
+    <pathCost>70</pathCost>
+    <castEdgeShadows>False</castEdgeShadows>
+    <interactionCellOffset>(2,2,2)</interactionCellOffset>
+    <staticSunShadowHeight>0</staticSunShadowHeight>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <drawGUIOverlay>True</drawGUIOverlay>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <blockWind>true</blockWind>
+    <blockLight>false</blockLight>
+    <scatterableOnMapGen>false</scatterableOnMapGen>
+    <leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
+  </ThingDef>
+
+  <ThingDef Abstract="True" Name="StaircaseBedMidQualityBase" ParentName="StaircaseBedBase">
+    <modExtensions>
+      <li Class="VillageStandalone.VillageStandaloneModExtension">
+        <RemoveSoakingWet>true</RemoveSoakingWet>
+        <RemoveSleptOutside>true</RemoveSleptOutside>
+        <RemoveSleptInCold>true</RemoveSleptInCold>
+        <RemoveSleptInHeat>true</RemoveSleptInHeat>
+        <RemoveSleptInBarracks>true</RemoveSleptInBarracks>
+        <RemoveSleepDisturbed>true</RemoveSleepDisturbed>
+        <customHediff>VillageStandalone_ComfyBoth</customHediff>
+      </li>
+    </modExtensions>
+    <statBases>
+      <MaxHitPoints>600</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <Beauty>4</Beauty>
+      <BeautyOutdoors>6</BeautyOutdoors>
+      <WorkToBuild>80000</WorkToBuild>
+      <Mass>400</Mass>
+      <BedRestEffectiveness>1</BedRestEffectiveness>
+      <Comfort>.8</Comfort>
+      <ImmunityGainSpeedFactor>1.10</ImmunityGainSpeedFactor>
+      <SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+      <MedicalTendQualityOffset>0.10</MedicalTendQualityOffset>
+      <BirthRitualQualityOffset MayRequire="Ludeon.RimWorld.Biotech">2</BirthRitualQualityOffset>
+    </statBases>
+    <researchPrerequisites>
+      <li>PassiveCooler</li>
+    </researchPrerequisites>
+    <techLevel>Neolithic</techLevel>
+    <stuffCategories>
+      <li>Woody</li>
+    </stuffCategories>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+
+  <ThingDef ParentName="StaircaseBedMidQualityBase">
+    <defName>22staircase</defName>
+    <label>Staircase to Decent Mid-Sized Upper Floor</label>
+    <description>A small staircase leading to an upper floor with a decent sleeping quarter. Provides additional space for your colonists. Houses 2 people sharing a bed. Includes a passive cooler and a small fireplace.</description>
+    <graphicData>
+      <texPath>Things/Building/22staircase/22staircase</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(4,4)</drawSize>
+      <drawRotated>false</drawRotated>
+    </graphicData>
+    <comps>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>20</fuelConsumptionRate>
+        <fuelCapacity>100.0</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>WoodLog</li>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+        <initialFuelPercent>1</initialFuelPercent>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+      </li>
+      <li Class="VillageStandalone.CompProperties_GiveThoughtVillage">
+        <thoughtDef>House_Small_Buff</thoughtDef>
+      </li>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li MayRequire="Ludeon.RimWorld.Ideology">SleepAccelerator</li>
+        </linkableFacilities>
+      </li>
+      <li>
+        <compClass>VillageStandalone.CompAssignBedHediff</compClass>
+      </li>
+    </comps>
+    <size>(2,2)</size>
+    <costStuffCount>500</costStuffCount>
+  </ThingDef>
+
+  <ThingDef ParentName="StaircaseBedMidQualityBase"> <!--TODO: Create graphics for the 1x2 staircase-->
+    <defName>12staircase</defName>
+    <label>Staircase to Decent Small Upper Floor</label>
+    <description>A small staircase leading to an upper floor with a decent sleeping quarter. Provides additional space for your colonists. Houses 1 person. Includes a passive cooler and a small fireplace.</description>
+    <graphicData>
+      <texPath>Things/Building/22staircase/22staircase</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,4)</drawSize>
+      <drawRotated>false</drawRotated>
+    </graphicData>
+    <comps>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>10</fuelConsumptionRate>
+        <fuelCapacity>50.0</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>WoodLog</li>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+        <initialFuelPercent>1</initialFuelPercent>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+      </li>
+      <li Class="VillageStandalone.CompProperties_GiveThoughtVillage">
+        <thoughtDef>House_Small_Buff</thoughtDef>
+      </li>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li MayRequire="Ludeon.RimWorld.Ideology">SleepAccelerator</li>
+        </linkableFacilities>
+      </li>
+      <li>
+        <compClass>VillageStandalone.CompAssignBedHediff</compClass>
+      </li>
+    </comps>
+    <size>(1,2)</size>
+    <costStuffCount>300</costStuffCount>
+  </ThingDef>
+</Defs>

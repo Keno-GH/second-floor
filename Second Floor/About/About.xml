@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Second Floor</name>
+	<author>Oken</author>
+	<supportedVersions>
+		<li>1.4</li>
+	</supportedVersions>
+	<packageId>Oken.SecondFloor</packageId>
+	<description>Create staircases leading to different floors that hold one purpose
+		Check the Steam workshop page for more info.</description>
+	<modDependencies>
+		<li>
+			<displayName>Villages:Homes</displayName>			
+			<packageId>Ottersholdhands.VillagesHomes</packageId>
+		</li>
+	</modDependencies>
+</ModMetaData>
